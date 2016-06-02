@@ -1,0 +1,296 @@
+<html>
+<head>
+<style>
+
+.flip-container {
+	perspective: 1000px;
+}
+		
+.flip-container:click .flipper, .flip-container.click .flipper {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 200px;
+	height: 200px;
+}
+
+
+.flip-container > .flipper {
+	transition: 1s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.front {
+	
+	
+	transform: rotateY(0deg);
+}
+
+.back {
+	transform: rotateY(180deg);
+}
+.flipped{
+transform:rotateY(180deg);
+}
+
+.flip-container > .flipper > .front{
+height:200;
+width:200;
+background-color:red;
+}
+.flip-container > .flipper > .back{
+height:200;
+width:200;
+background-color:green;
+}
+.txt{
+font-size:30px;
+color:black;
+}
+
+.flip-container > .flipper > .front > .flippers{
+height:200;
+width:200;
+background-color:red;
+}
+.flip-container > .flipper > .back{
+height:200;
+width:200;
+background-color:green;
+}
+.flip-container > .flipper > .front{
+height:200;
+width:200;
+background-color:red;
+}
+.flip-container > .flipper > .front > .txt{
+//height:200;
+//width:200;
+//background-color:red;
+font-size:30px;
+color:black;
+}
+</style>
+</head>
+<body>
+
+<div class="flip-container">
+   <!--canvas id="grid"-->
+   
+      
+	<div class="flipper" onclick="this.classList.toggle('flipped')">
+	
+		
+		   
+		         <div class="front" onclick="myF()">
+				    <div class="txt">front content</div>
+				   
+				   
+				 
+		            
+			        
+			 
+			    
+			  
+			  
+		      
+		      </div>
+			  
+		  
+		     
+		
+		<div class="back">
+		   
+			<div class="txt">back content</div>
+		      
+		</div>
+		
+	</div>
+  
+  
+</div>
+
+
+<div class="flip-container">
+<!--canvas id="grid" class="flippers" onclick="this.classList.toggle('flipped')"-->
+	<div class="flipper" onclick="this.classList.toggle('flipped')">
+		<div class="front">
+		    <!--canvas id="grid" class="flippers" onclick="this.classList.toggle('flipped')"-->
+			  <!--canvas id="grid" class="flippers" onclick="this.classList.toggle('flipped')"-->
+			    
+			<!-- front content -->
+		         
+		        <div class="txt">front content</div>
+			  
+			
+		</div>
+		<div class="back">
+			<!-- back content -->
+			<div class="txt">back content</div>
+		</div>
+	</div>
+  <!--/canvas-->
+</div>
+
+<div class="flip-container">
+<!--canvas id="grid" class="flippers" onclick="this.classList.toggle('flipped')"-->                
+<!--canvas id="grid" class="flippers" onclick="this.classList.toggle('flipped')"-->                  
+	<div class="flipper" onclick="this.classList.toggle('flipped')">                                    
+		<div class="front">
+		                        
+		                 <div class="txt">front content</div>   
+			    
+			<!-- front content -->
+		          
+			  
+			
+		</div>                                                                                                                
+		        
+		<div class="back"> 
+		<div class="txt">back content</div>
+			<!-- back content -->
+		</div>
+	</div>
+  <!--/canvas-->                                                                                                                      
+</div>
+<div class="flip-container">
+	<div class="flipper" onclick="this.classList.toggle('flipped')">
+		<div class="front">                                                                                                                  
+		                                                        
+			  <div class="txt">front content</div> 
+	                                                                                                                                               
+			<!-- front content -->
+		         
+		                                                                                                                                     
+			                                                                                                                                             
+			
+		</div>
+		<div class="back">
+		<div class="txt">4</div>
+			<!-- back content -->                                                                                                                               
+		</div>
+	</div>
+  <!--/canvas-->
+</div>
+
+
+
+
+
+
+<!--canvas id="grid"--><!--/canvas-->
+<script>
+function myF(){
+var grd=document.getElementsByClassName('flipper');
+var bk=grd.querySelector('.back');
+document.getElementById("demo").innerHTML=1;
+
+}
+
+var drawGrid = function(w, h, id) {
+    var canvas = document.getElementById(id);
+    var ctx = canvas.getContext("2d");
+    ctx.canvas.width  = w;
+    ctx.canvas.height = h;
+	alert("hi");
+
+
+    for (x=0;x<=w;x+=200) {
+        for (y=0;y<=h;y+=200) {
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, h);
+            ctx.stroke();
+            ctx.moveTo(0, y);
+            ctx.lineTo(w, y);
+            ctx.stroke();
+        }
+		
+    }
+	/*ctx.fillStyle = "blue";
+    ctx.fillRect(0,0,200,200);
+	ctx.fillStyle = "yellow";
+    ctx.fillRect(200,0,400,200);
+	ctx.fillStyle = "orange";
+    ctx.fillRect(400,0,600,200);
+	ctx.fillStyle = "green";
+    ctx.fillRect(600,0,800,200);
+	ctx.fillStyle = "magenta";
+    ctx.fillRect(0,200,200,200);
+	ctx.fillStyle = "purple";
+    ctx.fillRect(200,200,400,200);
+	ctx.fillStyle = "indigo";
+    ctx.fillRect(400,200,600,200);
+	ctx.fillStyle = "blue";
+    ctx.fillRect(600,200,800,200);
+	//ctx.fillStyle = "red";
+    //ctx.fillRect(0,200,200,400);
+	ctx.fillStyle = "yellow";
+    ctx.fillRect(200,400,200,600);
+	ctx.fillStyle = "orange";
+    ctx.fillRect(400,400,400,600);
+	ctx.fillStyle = "yellow";
+    ctx.fillRect(600,200,800,200);
+	ctx.fillStyle = "brown";
+    ctx.fillRect(0,600,200,600);
+	ctx.fillStyle = "black";
+    ctx.fillRect(200,600,200,600);
+	//ctx.fillStyle = "green";
+    //ctx.fillRect(200,600,400,600);
+	ctx.fillStyle = "indigo";
+    ctx.fillRect(600,600,600,600);*/
+	
+
+    };
+
+	
+	
+
+var mx;
+var my;
+var clickedX;
+var clickedY;
+    drawGrid(800, 800, "grid");
+	window.onclick=function(e){
+	mx=e.pageX;
+	my=e.pageY;
+	//console.log(mx + "," + my);
+	if(Math.floor(mx/200)<4 && Math.floor(my/200)<4){
+	clickedX=Math.floor(mx/200);
+	clickedY=Math.floor(my/200);
+	//console.log(clickedX + "," + clickedY);
+	}
+	}
+var numbers=['1','2','3','4','5','6','7','8'];
+var ran=new Array(16);
+var k=0;
+var m=15;
+for(var j=0;j<8;j++)
+{
+var randInt=numbers[j];
+//var rand=numbers[randInt];
+ran[k]=randInt;
+ran[m]=randInt;
+k++;
+m--;
+}
+for(var s=0;s<16;s++){
+console.log(ran[s]);
+}
+
+
+</script>
+<p id="demo"></p>
+</body>
+</html>	
